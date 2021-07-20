@@ -4,12 +4,12 @@ import { apiURL } from "./util/apiURL.js";
 const API = apiURL();
 
 function App() {
-  const [days, setDays] = useState([]);
+  const [homes, setHomes] = useState([]);
   useEffect(() => {
     axios
-      .get(`${API}/test`)
+      .get(`${API}/homes`)
       .then(
-        (response) => setDays(response.data),
+        (response) => setHomes(response.data),
         (error) => console.log("get", error)
       )
       .catch((c) => console.warn("catch", c));
@@ -17,8 +17,8 @@ function App() {
   return (
     <div>
       <ul>
-        {days.map((day) => (
-          <li key={day.name}>{day.name}</li>
+        {homes.map((home) => (
+          <li key={home.property_type}>{home.address}</li>
         ))}
       </ul>
     </div>

@@ -6,7 +6,7 @@ INSERT INTO homes (address, state, number_of_bathrooms,number_of_bedrooms, price
 ('3840 E Placita Sumo, Tucson', 'AZ', 5, 4, 1449950, TRUE, 'SFH', FALSE),
 ('2909 Cleburne St, Houston', 'TX', 2, 4, 495000, TRUE, 'MFH', FALSE),
 ('1120 Cedar St, Jacksonville', 'FL', 7, 8, 1249000, TRUE, 'MFH', FALSE),
-('17353 Beaver St W, Jacksonville', 'FL', 8, 12, TRUE, 1850000, 'MFH', FALSE),
+('17353 Beaver St W, Jacksonville', 'FL', 8, 12, 1850000, TRUE, 'MFH', FALSE),
 ('25211 Jim Bridger Road, Hidden Hills', 'CA', 9, 7, 13995000, TRUE, 'SFH', FALSE),
 ('25354 Prado De La Felicidad, Calabasas', 'CA', 14, 8, 34000000, TRUE, 'SFH', FALSE),
 ('1428 S Concord St W, Salt Lake City', 'UT', 3, 3, 430000, TRUE, 'SFH', FALSE),
@@ -16,4 +16,3 @@ INSERT INTO homes (address, state, number_of_bathrooms,number_of_bedrooms, price
 
 
 
-// SFH Condo MFH 

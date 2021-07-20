@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS test;
+DROP TABLE IF EXISTS homes;
 
 CREATE TABLE homes (
     id SERIAL PRIMARY KEY, 
@@ -9,6 +9,5 @@ CREATE TABLE homes (
     price INTEGER,
     parking BOOLEAN,
     property_type TEXT,
-    saved BOOLEAN,
-
+    saved BOOLEAN NOT NULL DEFAULT FALSE
 );
