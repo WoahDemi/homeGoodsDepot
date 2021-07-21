@@ -1,7 +1,7 @@
 // DEPENDENCIES
 const cors = require("cors");
 const express = require("express");
-// const homeController = require("./Controllers/homeController")
+const homeController = require("./Controllers/homeController")
 
 // CONFIGURATION
 const app = express();
