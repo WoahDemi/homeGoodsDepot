@@ -1,6 +1,7 @@
 import axios from "axios"
 import {useState, useEffect} from "react"
 import {apiURL} from "../util/apiURL"
+//test add
 
 const API = apiURL()
 
@@ -24,7 +25,7 @@ const Homes = () =>{
         <div>
             <ul>
                 {homes.map((home) =>{
-                   return <li>{home.address}</li>
+                   return <li key = {home.id}>{home.address}</li>
                 })}
 
             </ul>
