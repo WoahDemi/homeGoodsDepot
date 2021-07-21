@@ -24,7 +24,7 @@ const Homes = () =>{
         <div>
             <ul>
                 {homes.map((home) =>{
-                   return <li>{home.address}</li>
+                   return <li key = {home.id}>{home.address}</li>
                 })}
 
             </ul>
