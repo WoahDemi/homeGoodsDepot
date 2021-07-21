@@ -9,5 +9,6 @@ CREATE TABLE homes (
     price INTEGER,
     parking BOOLEAN,
     property_type TEXT,
+    image TEXT,
     saved BOOLEAN NOT NULL DEFAULT FALSE
 );
