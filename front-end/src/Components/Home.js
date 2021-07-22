@@ -38,6 +38,8 @@ let history = useHistory()
       <img src={home.image} alt={home.id} />
       <ul>
         <li>{home.property_type}</li>
+        <li>{home.parking ? "Parking" : "No Parking"}</li>
+        <li>{home.saved}</li>
         {/* <li>{home.property_type}</li>
           <li>{home.property_type}</li>
           <li>{home.property_type}</li>
