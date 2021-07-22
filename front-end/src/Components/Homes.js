@@ -1,6 +1,7 @@
 import axios from "axios"
 import {useState, useEffect} from "react"
 import {apiURL} from "../util/apiURL"
+import { Link } from "react-router-dom"
 //test add
 
 const API = apiURL()
@@ -25,9 +26,8 @@ const Homes = () =>{
         <div>
             <ul>
                 {homes.map((home) =>{
-                   return <li key = {home.id}>{home.address}</li>
+                   return <Link to={`/homes/${home.id}`}> <li key = {home.id}>{home.address}</li> </Link>
                 })}
-
             </ul>
         </div>
     )
