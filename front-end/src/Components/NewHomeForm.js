@@ -1,7 +1,9 @@
 import axios from "axios"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { apiURL } from "../util/apiURL"
-import { Link, useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom"
+import { Button, Form, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function NewHomeForm() {
     const API = apiURL();
@@ -30,7 +32,6 @@ function NewHomeForm() {
     }
 
     const handleTextChange = (event) => {
-        debugger
         setHome({ ...home, [event.target.id]: event.target.value })
     }
     const handleCheckBox = (event) => {
@@ -41,110 +42,95 @@ function NewHomeForm() {
         addHome();
     }
 
-    return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="address">Address:</label>
-                <input
-                    id="address"
-                    value={home.address}
-                    type="text"
-                    onChange={handleTextChange}
-                    placeholder="Address"
-                    required
-                />
 
-                <label htmlFor="state">State:</label>
-                <input
-                    id="state"
-                    maxLength="2"
-                    value={home.state}
-                    type="text"
-                    onChange={handleTextChange}
-                    placeholder="State initials"
-                    required
-                />
+    return (<div>
 
+        <Form onSubmit={handleSubmit} className="mx-auto mt-5 w-50 card p-4 bg-light">
 
-                <label htmlFor="bathroom">Number of Bathrooms:</label>
-                <input
-                    id="number_of_bathrooms"
-                    value={home.number_of_bathrooms}
-                    type="number"
-                    min="0"
-                    onChange={handleTextChange}
-                    placeholder="Number of bathrooms"
-                    required
-                />
+            <Row className="mb-3">
 
+                <Col xs={9}>
+                    <Form.Group className="mb-1" controlId="address" >
+                        <Form.Label>Address</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Address" onChange={handleTextChange} value={home.address} required />
+                    </Form.Group>
+                </Col>
 
-                <label htmlFor="bedroom">Number of Bedrooms:</label>
-                <input
-                    id="number_of_bedrooms"
-                    value={home.number_of_bedrooms}
-                    type="number"
-                    min="0"
-                    onChange={handleTextChange}
-                    placeholder="Number of bedrooms"
-                    required
-                />
+                <Col>
+                    <Form.Group className="mb-3" controlId="state">
+                        <Form.Label>State</Form.Label>
+                        <Form.Control type="text" placeholder="State initials" maxLength="2" value={home.state} onChange={handleTextChange} />
+                    </Form.Group>
+                </Col>
 
-                <label htmlFor="price">Cost of Home:</label>
-                <input
-                    id="price"
-                    value={home.price}
-                    type="number"
-                    min="0"
-                    onChange={handleTextChange}
-                    placeholder="Cost of home"
-                    required
-                />
-                <br></br>
-                <label htmlFor="parking">Parking:</label>
-                <input
-                    id="parking"
-                    value={home.parking}
-                    type="checkbox"
-                    onChange={handleCheckBox}
-                />
+            </Row>
 
-                <label htmlFor="property_type">Propety Type:</label>
-                <select id="property_type" onChange={handleTextChange} defaultValue="" required>
-                    <option disabled ></option>
-                    <option value="SFH">SFH</option>
-                    <option value="MFH">MFH</option>
-                    <option value="CONDO">CONDO</option>
-                </select>
+            <Row>
+                <Col xs={6}>
+                    <Form.Label>Property Type</Form.Label>
+                    <Form.Select id="property_type" onChange={handleTextChange} required>
+                        <option value="SFH">Single-Family Home</option>
+                        <option value="MFH">Multi-Family Home</option>
+                        <option value="CONDO">Condo</option>
+                    </Form.Select>
+                </Col>
+                <Col>
 
-                <label htmlFor="image">Image Link:</label>
-                <input
-                    id="image"
-                    value={home.image}
-                    type="url"
-                    pattern="https://.*"
-                    onChange={handleTextChange}
-                    placeholder="Image"
-                    required
-                />
+                    <Form.Group className="mb-1" controlId="number_of_bathrooms" >
+                        <Form.Label>Bathrooms</Form.Label>
+                        <Form.Control type="number" placeholder="# of bathrooms" onChange={handleTextChange} value={home.number_of_bathrooms} min="0" required />
+                    </Form.Group>
+                </Col><Col>
 
-                <label htmlFor="saved">Saved:</label>
-                <input
-                    id="saved"
-                    value={home.saved}
-                    type="checkbox"
-                    onChange={handleCheckBox}
-                />
+                    <Form.Group className="mb-1" controlId="number_of_bedrooms" >
+                        <Form.Label>Bedrooms</Form.Label>
+                        <Form.Control type="number" placeholder="# of bedrooms" onChange={handleTextChange} value={home.number_of_bedrooms} min="0" required />
+                    </Form.Group>
+                </Col>
 
-                <input type="submit" />
+            </Row>
 
+            <br></br>
 
-            </form>
+            <Row>
+                <Col xs={8}>
+                    <Form.Group className="mb-1" controlId="image" >
+                        <Form.Label>Image</Form.Label>
+                        <Form.Control type="url" placeholder="Enter image URL" onChange={handleTextChange} value={home.image} pattern="https://.*" required />
+                    </Form.Group>
+                </Col>
+                <Col>
+                    <Form.Group className="mb-1" controlId="price" >
+                        <Form.Label>Total Cost of Home</Form.Label>
+                        <Form.Control type="number" placeholder="total cost" onChange={handleTextChange} value={home.price} min="0" required />
+                    </Form.Group>
+                </Col>
 
+            </Row>
 
-        </div>
-    )
+            <br></br>
 
+            <Row>
+                <Col>
+                    <Form.Group className="mb-3" controlId="parking">
+                        <Form.Check type="checkbox" label="Is there parking space?" onChange={handleCheckBox} value={home.parking} />
+                    </Form.Group>
+                </Col><Col>
+                    <Form.Group className="mb-3" controlId="saved">
+                        <Form.Check type="checkbox" label="save this house?" onChange={handleCheckBox} value={home.saved} />
+                    </Form.Group>
+                </Col>
+            </Row>
 
+            <div className="d-grid gap-2">
+                <Button className="p-2" size="lg" variant="secondary" type="submit">
+                    Submit
+                </Button>
+            </div>
+
+        </Form>
+
+    </div>)
 }
 
 export default NewHomeForm;
