@@ -1,6 +1,6 @@
 import NewHomeForm from "../Components/NewHomeForm";
 
-function New(){
+function Edit(){
 
     const header = {
         "textAlign": "center",
@@ -9,9 +9,9 @@ function New(){
       };
 
     return(<div>
-        <h3 style={header}>Enter a listing for a new home: </h3>
-        <NewHomeForm />
+        <h3 style={header}>edit home listing: </h3>
+        <EditHomeForm />
         </div>)
 }
 
-export default New;
+export default Edit;
