@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { apiURL } from "../util/apiURL";
-import { useParams, useHistory } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 
 
 const API = apiURL();
@@ -48,7 +48,7 @@ function Home() {
           <li>{home.property_type}</li>
           <li>{home.property_type}</li> */}
       </ul>
-      <button>Edit</button>
+      <button><Link to={`/homes/${id}/edit`}>Edit Home</Link></button>
       <button onClick={deleteHome}>Delete</button>
     </div>
   );

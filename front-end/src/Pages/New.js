@@ -4,7 +4,7 @@ function New(){
 
     const header = {
         "textAlign": "center",
-        backgroundColor: "yellow",
+        backgroundColor: "#8ECAE6",
         padding: "10px"
       };
 
