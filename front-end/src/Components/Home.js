@@ -41,6 +41,7 @@ function Home() {
         <li>{home.property_type}</li>
         <li>{home.parking ? "Parking" : "No Parking"}</li>
         <li>{home.saved}</li>
+        <li>{home.state}</li>
         {/* <li>{home.property_type}</li>
           <li>{home.property_type}</li>
           <li>{home.property_type}</li>
