@@ -3,7 +3,7 @@ import NewHomeForm from "../Components/NewHomeForm";
 function New(){
 
     const header = {
-        "text-align": "center",
+        "textAlign": "center",
         backgroundColor: "yellow",
         padding: "10px"
       };

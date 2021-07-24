@@ -108,19 +108,19 @@ function NewHomeForm() {
             <br></br>
 
             <Row>
-                <Col xs={8}>
+                {/* <Col xs={8}>
             <Form.Group controlId="image" className="mb-1">
                 <Form.Label>Default file input example</Form.Label>
                 <Form.Control type="file" onChange={handleTextChange} value={home.image} required/>
             </Form.Group>
-            </Col>
+            </Col> */}
 
-                {/* <Col xs={8}>
+                <Col xs={8}>
                     <Form.Group className="mb-1" controlId="image" >
                         <Form.Label>Image</Form.Label>
                         <Form.Control type="url" placeholder="Enter image URL" onChange={handleTextChange} value={home.image} pattern="https://.*" required />
                     </Form.Group>
-                </Col> */}
+                </Col>
                 <Col>
                     <Form.Group className="mb-1" controlId="price" >
                         <Form.Label>Total Cost of Home</Form.Label>
@@ -144,7 +144,7 @@ function NewHomeForm() {
                 </Col>
             </Row>
 
-            
+
 
             <div className="d-grid gap-2">
                 <Button className="p-2" size="lg" variant="secondary" type="submit">
