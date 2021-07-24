@@ -17,7 +17,6 @@ function App() {
           <Container>
             <Navbar.Brand href="/">🏡 HomeGoods Depot 🏡</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/homes">Available HomeGoods</Nav.Link>
               <Nav.Link href="/homes/new">Add a Listing</Nav.Link>
             </Nav>

@@ -16,7 +16,7 @@ function Home() {
               </Link>
             </Col>
             <Col >
-              <Image className="image" src="https://www.priceypads.com/wp-content/uploads/2018/05/ISa1ba7g0qkjdn0000000000-2.jpg" fluid />  
+              <Image className="image" src="https://www.priceypads.com/wp-content/uploads/2018/05/ISa1ba7g0qkjdn0000000000-2.jpg"  />  
             </Col>
           </Row>
         </Container>
