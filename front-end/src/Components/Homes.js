@@ -26,7 +26,7 @@ const Homes = () =>{
         <div>
             <ul>
                 {homes.map((home) =>{
-                   return <Link to={`/homes/${home.id}`}> <li key = {home.id}>{home.address}</li> </Link>
+                   return <Link key={home.id} to={`/homes/${home.id}`}> <li>{home.address}</li> </Link>
                 })}
             </ul>
         </div>

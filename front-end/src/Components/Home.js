@@ -9,28 +9,29 @@ const API = apiURL();
 function Home() {
   const [home, setHome] = useState({});
   const { id } = useParams();
-let history = useHistory()
-  const getHome = async() => {
+  let history = useHistory()
+
+
+  const deleteHome = async () => {
     try {
-      const res = await axios.get(`${API}/homes/${id}`);
-      setHome(res.data);
+      await axios.delete(`${API}/homes/${id}`)
+      history.push(`/homes`)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   };
 
-  const deleteHome = async() => {
-      try {
-        await axios.delete(`${API}/homes/${id}`)
-        history.push(`/homes`)
-      } catch (error) {
-          console.log(error)
-      }
-  };
-
   useEffect(() => {
+    const getHome = async () => {
+      try {
+        const res = await axios.get(`${API}/homes/${id}`);
+        setHome(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     getHome();
-  }, []);
+  }, [id]);
 
   return (
     <div>
@@ -38,13 +39,16 @@ let history = useHistory()
       <img src={home.image} alt={home.id} />
       <ul>
         <li>{home.property_type}</li>
+        <li>{home.parking ? "Parking" : "No Parking"}</li>
+        <li>{home.saved}</li>
+        <li>{home.state}</li>
         {/* <li>{home.property_type}</li>
           <li>{home.property_type}</li>
           <li>{home.property_type}</li>
           <li>{home.property_type}</li> */}
       </ul>
       <button>Edit</button>
-      <button onClick = {deleteHome}>Delete</button>
+      <button onClick={deleteHome}>Delete</button>
     </div>
   );
 }

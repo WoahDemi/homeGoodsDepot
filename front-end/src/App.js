@@ -1,12 +1,10 @@
-// import axios from "axios";
-// import { useState, useEffect } from "react";
-// import { apiURL } from "./util/apiURL.js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
 import Index from "./Pages/Index";
+import New from "./Pages/New";
 import Show from "./Pages/Show";
 import FourOFour from "./Pages/FourOFour";
-// const API = apiURL();
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -18,6 +16,9 @@ function App() {
           </Route>
           <Route exact path="/homes">
             <Index />
+          </Route>
+          <Route exact path="/homes/new">
+            <New />
           </Route>
           <Route exact path="/homes/:id">
             <Show />

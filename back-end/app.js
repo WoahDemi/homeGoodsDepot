@@ -15,14 +15,6 @@ app.use("/homes",homeController)
 app.get("/", (req, res) => {
   res.send("Homes for Rich people...ONLY");
 });
-// app.get("/homes", async (req, res) => {
-//   try {
-//     const allHomes = await db.any("SELECT * FROM homes");
-//     res.json(allHomes);
-//   } catch (err) {
-//     res.json(err);
-//   }
-// });
 
 app.get("*", (req, res) => {
   res.status(404).send("Page Not Found")
