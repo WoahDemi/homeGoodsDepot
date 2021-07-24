@@ -27,11 +27,12 @@ function Home() {
         const res = await axios.get(`${API}/homes/${id}`);
         setHome(res.data);
       } catch (error) {
+        history.push(`/404`)
         console.log(error);
       }
     };
     getHome();
-  }, [id]);
+  }, [id, history]);
 
   return (
     <div>
