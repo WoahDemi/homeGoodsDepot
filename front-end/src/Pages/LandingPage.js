@@ -1,4 +1,4 @@
-import "../Style/LandingPage.css"
+import "../Styles/LandingPage.css"
 import {Container, Row, Col, Image, Button} from "react-bootstrap"
 import {Link} from "react-router-dom"
 function Home() {

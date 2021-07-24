@@ -9,20 +9,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Container, Nav } from "react-bootstrap";
 // import { Navbar } from "react-bootstrap";
 
+
 function App() {
   return (
     <div className="AppDiv">
       <Router>
-        <Navbar bg="dark" variant="dark">
+         <Navbar bg="dark" variant="dark">
           <Container>
             <Navbar.Brand href="/">🏡 HomeGoods Depot 🏡</Navbar.Brand>
             <Nav className="me-auto">
-              {/* <Nav.Link href="/">Home</Nav.Link> */}
+              <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/homes">Available HomeGoods</Nav.Link>
               <Nav.Link href="/homes/new">Add a Listing</Nav.Link>
             </Nav>
           </Container>
-        </Navbar>
+        </Navbar> 
         <main>
           <Switch>
             <Route exact path="/">
