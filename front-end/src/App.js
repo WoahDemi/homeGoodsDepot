@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Index from "./Pages/Index";
 import New from "./Pages/New";
 import Show from "./Pages/Show";
+import 'bootstrap/dist/css/bootstrap.min.css';
 // const API = apiURL();
 
 function App() {

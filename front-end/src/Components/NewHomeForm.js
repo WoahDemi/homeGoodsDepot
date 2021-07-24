@@ -3,11 +3,15 @@ import { useState } from "react"
 import { apiURL } from "../util/apiURL"
 import { useHistory } from "react-router-dom"
 import { Button, Form, Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function NewHomeForm() {
     const API = apiURL();
     let history = useHistory()
+    const states = ["AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE",
+        "FL", "GA", "GU", "HI", "IA",
+        "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MH", "MI", "MN", "MO", "MS", "MT",
+        "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "PW", "RI",
+        "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA", "WI", "WV", "WY"];
 
     const [home, setHome] = useState({
         address: "",
@@ -39,6 +43,7 @@ function NewHomeForm() {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
+        debugger
         addHome();
     }
 
@@ -57,11 +62,21 @@ function NewHomeForm() {
                 </Col>
 
                 <Col>
+                    <Form.Label>State</Form.Label>
+                    <Form.Select id="state" onChange={handleTextChange} defaultValue="" required>
+                        <option disabled></option>
+                        {states.map((state) => {
+                            return <option value={state} key={state} >{state}</option>
+                        })}
+                    </Form.Select>
+                </Col>
+
+                {/* <Col>
                     <Form.Group className="mb-3" controlId="state">
                         <Form.Label>State</Form.Label>
                         <Form.Control type="text" placeholder="State initials" maxLength="2" value={home.state} onChange={handleTextChange} />
                     </Form.Group>
-                </Col>
+                </Col> */}
 
             </Row>
 
@@ -94,11 +109,18 @@ function NewHomeForm() {
 
             <Row>
                 <Col xs={8}>
+            <Form.Group controlId="image" className="mb-1">
+                <Form.Label>Default file input example</Form.Label>
+                <Form.Control type="file" onChange={handleTextChange} value={home.image} required/>
+            </Form.Group>
+            </Col>
+
+                {/* <Col xs={8}>
                     <Form.Group className="mb-1" controlId="image" >
                         <Form.Label>Image</Form.Label>
                         <Form.Control type="url" placeholder="Enter image URL" onChange={handleTextChange} value={home.image} pattern="https://.*" required />
                     </Form.Group>
-                </Col>
+                </Col> */}
                 <Col>
                     <Form.Group className="mb-1" controlId="price" >
                         <Form.Label>Total Cost of Home</Form.Label>
@@ -110,9 +132,9 @@ function NewHomeForm() {
 
             <br></br>
 
-            <Row>
+            <Row className="d-flex justify-content-around">
                 <Col>
-                    <Form.Group className="mb-3" controlId="parking">
+                    <Form.Group className="ml-3" controlId="parking">
                         <Form.Check type="checkbox" label="Is there parking space?" onChange={handleCheckBox} value={home.parking} />
                     </Form.Group>
                 </Col><Col>
@@ -121,6 +143,8 @@ function NewHomeForm() {
                     </Form.Group>
                 </Col>
             </Row>
+
+            
 
             <div className="d-grid gap-2">
                 <Button className="p-2" size="lg" variant="secondary" type="submit">
