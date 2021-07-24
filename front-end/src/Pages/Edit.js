@@ -1,4 +1,4 @@
-import NewHomeForm from "../Components/NewHomeForm";
+import EditHomeForm from "../Components/EditHomeForm";
 
 function Edit(){
 
@@ -9,7 +9,7 @@ function Edit(){
       };
 
     return(<div>
-        <h3 style={header}>edit home listing: </h3>
+        <h3 style={header}>Edit home listing: </h3>
         <EditHomeForm />
         </div>)
 }

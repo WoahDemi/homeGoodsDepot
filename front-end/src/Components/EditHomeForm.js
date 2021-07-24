@@ -1,11 +1,12 @@
 import axios from "axios"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { apiURL } from "../util/apiURL"
-import { useHistory } from "react-router-dom"
+import { useHistory, useParams} from "react-router-dom"
 import { Button, Form, Row, Col } from 'react-bootstrap';
 
 function EditHomeForm() {
     const API = apiURL();
+    let { id } = useParams();
     let history = useHistory()
     const states = ["AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE",
         "FL", "GA", "GU", "HI", "IA",
@@ -25,15 +26,32 @@ function EditHomeForm() {
         saved: false
     })
 
-    const addHome = async () => {
+    const editHome = async () => {
         try {
-            await axios.post(`${API}/homes`, home)
+            await axios.put(`${API}/homes/${id}`, home)
             history.push(`/homes`)
         } catch (error) {
             console.log(error)
         }
-
     }
+
+    const goBack = ()=>{
+        history.push(`/homes/${id}`)
+    }
+
+    useEffect(() => {
+        const getHome = async () => {
+          try {
+            const res = await axios.get(`${API}/homes/${id}`);
+            setHome(res.data);
+          } catch (error) {
+            history.push(`/404`)
+            console.log(error);
+          }
+        };
+        getHome();
+      }, [id, history, API]);
+
 
     const handleTextChange = (event) => {
         setHome({ ...home, [event.target.id]: event.target.value })
@@ -43,8 +61,7 @@ function EditHomeForm() {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        debugger
-        addHome();
+        editHome();
     }
 
 
@@ -63,7 +80,7 @@ function EditHomeForm() {
 
                 <Col>
                     <Form.Label>State</Form.Label>
-                    <Form.Select id="state" onChange={handleTextChange} defaultValue="" required>
+                    <Form.Select id="state" onChange={handleTextChange} checked={home.state} defaultValue="" required>
                         <option disabled></option>
                         {states.map((state) => {
                             return <option value={state} key={state} >{state}</option>
@@ -83,7 +100,7 @@ function EditHomeForm() {
             <Row>
                 <Col xs={6}>
                     <Form.Label>Property Type</Form.Label>
-                    <Form.Select id="property_type" onChange={handleTextChange} required>
+                    <Form.Select id="property_type" onChange={handleTextChange}  required>
                         <option value="SFH">Single-Family Home</option>
                         <option value="MFH">Multi-Family Home</option>
                         <option value="CONDO">Condo</option>
@@ -118,7 +135,7 @@ function EditHomeForm() {
                 <Col xs={8}>
                     <Form.Group className="mb-1" controlId="image" >
                         <Form.Label>Image</Form.Label>
-                        <Form.Control type="url" placeholder="Enter image URL" onChange={handleTextChange} value={home.image} pattern="https://.*" required />
+                        <Form.Control type="url" placeholder="Enter image URL" onChange={handleTextChange} value={home.image}  pattern="https://.*" required />
                     </Form.Group>
                 </Col>
                 <Col>
@@ -135,11 +152,11 @@ function EditHomeForm() {
             <Row className="d-flex justify-content-around">
                 <Col>
                     <Form.Group className="ml-3" controlId="parking">
-                        <Form.Check type="checkbox" label="Is there parking space?" onChange={handleCheckBox} value={home.parking} />
+                        <Form.Check type="checkbox" label="Is there parking space?" onChange={handleCheckBox} checked={home.parking} value={home.parking} />
                     </Form.Group>
                 </Col><Col>
                     <Form.Group className="mb-3" controlId="saved">
-                        <Form.Check type="checkbox" label="save this house?" onChange={handleCheckBox} value={home.saved} />
+                        <Form.Check type="checkbox" label="save this house?" onChange={handleCheckBox} checked={home.saved} value={home.saved} />
                     </Form.Group>
                 </Col>
             </Row>
@@ -153,6 +170,12 @@ function EditHomeForm() {
             </div>
 
         </Form>
+
+        <div className="mx-auto mt-5 w-25 d-grid gap-2">
+                <Button className="p-2" size="lg" variant="secondary" onClick={()=>goBack()}>
+                    Go Back
+                </Button>
+            </div>
 
     </div>)
 }

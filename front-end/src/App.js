@@ -5,6 +5,7 @@ import New from "./Pages/New";
 import Show from "./Pages/Show";
 import FourOFour from "./Pages/FourOFour";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Edit from "./Pages/Edit";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route exact path="/homes/:id">
             <Show />
+          </Route>
+          <Route exact path="/homes/:id/edit">
+            <Edit />
           </Route>
           <Route path="*">
             <FourOFour />
