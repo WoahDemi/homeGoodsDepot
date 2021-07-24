@@ -11,19 +11,32 @@ homes.get("/", async (req,res ) => {
 
 homes.get("/:id", async (req, res) => {
     const {id} = req.params
-    const oneHome = await getOneHome(id)
-    res.json(oneHome)
+    try {
+        const oneHome = await getOneHome(id)
+        if (oneHome["id"]) {
+            res.json(oneHome)
+        } else {
+            console.log(`Database error: ${oneHome}`)
+            throw `There is no home with id: ${id}`
+        }
+    } catch (error) {
+        res.status(404).json({error: "Resource not found.", message: error})
+    }
 
 })
 
 homes.post("/", async (req, res) => {
     const home = req.body
-    console.log(home)
     try {
         const newHome = await createHome(home)
-        res.json(newHome)
+        if (newHome["id"]) {
+            res.json(newHome)
+        } else {
+            console.log(`Database error: ${newHome}`)
+            throw ("Error adding" + home + " to the database")
+        }
     } catch (error) {
-        res.status(404).json({error:"Error"})
+        res.status(404).json({error:error})
     }
 })
 

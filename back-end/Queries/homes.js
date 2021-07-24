@@ -22,6 +22,9 @@ const getOneHome = async (id) => {
 const createHome = async (home) => {
     const {address, state, number_of_bathrooms, number_of_bedrooms, price, parking, property_type, saved, image} = home
     try {
+        if (!address || !state || !number_of_bathrooms || !number_of_bedrooms || !price || !property_type || !image){
+            throw `You must specify a value`
+        }
         const create = await db.one(
             "INSERT INTO homes (address, state, number_of_bathrooms,number_of_bedrooms, price, parking, property_type, saved, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
             [address, state, number_of_bathrooms,number_of_bedrooms, price, parking, property_type, saved, image]
