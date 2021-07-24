@@ -80,7 +80,7 @@ function EditHomeForm() {
 
                 <Col>
                     <Form.Label>State</Form.Label>
-                    <Form.Select id="state" onChange={handleTextChange} checked={home.state} defaultValue="" required>
+                    <Form.Select id="state" onChange={handleTextChange}  value={home.state} defaultValue="" required>
                         <option disabled></option>
                         {states.map((state) => {
                             return <option value={state} key={state} >{state}</option>
@@ -100,7 +100,7 @@ function EditHomeForm() {
             <Row>
                 <Col xs={6}>
                     <Form.Label>Property Type</Form.Label>
-                    <Form.Select id="property_type" onChange={handleTextChange}  required>
+                    <Form.Select id="property_type" onChange={handleTextChange} value={home.property_type} required>
                         <option value="SFH">Single-Family Home</option>
                         <option value="MFH">Multi-Family Home</option>
                         <option value="CONDO">Condo</option>
