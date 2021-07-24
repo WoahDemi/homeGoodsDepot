@@ -42,6 +42,7 @@ function NewHomeForm() {
         addHome();
     }
 
+
     return (<div>
 
         <Form onSubmit={handleSubmit} className="mx-auto mt-5 w-50 card p-4 bg-light">
@@ -130,8 +131,6 @@ function NewHomeForm() {
         </Form>
 
     </div>)
-
-
 }
 
 export default NewHomeForm;

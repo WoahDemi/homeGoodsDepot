@@ -1,6 +1,7 @@
 import NewHomeForm from "../Components/NewHomeForm";
 
 function New(){
+
     const header = {
         "text-align": "center",
         backgroundColor: "yellow",
@@ -10,8 +11,7 @@ function New(){
     return(<div>
         <h3 style={header}>Enter a listing for a new home: </h3>
         <NewHomeForm />
-        </div>
-    )
+        </div>)
 }
 
 export default New;
