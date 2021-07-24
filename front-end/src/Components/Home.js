@@ -30,7 +30,7 @@ let history = useHistory()
 
   useEffect(() => {
     getHome();
-  }, []);
+  });
 
   return (
     <div>
