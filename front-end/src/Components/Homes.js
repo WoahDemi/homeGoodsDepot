@@ -2,8 +2,7 @@ import axios from "axios"
 import {useState, useEffect} from "react"
 import {apiURL} from "../util/apiURL"
 import { Link } from "react-router-dom"
-//test add
-
+// import "../Styles/Styles.css"
 const API = apiURL()
 
 const Homes = () =>{
@@ -24,9 +23,9 @@ const Homes = () =>{
 
     return(
         <div>
-            <ul>
+            <ul className = "Homes">
                 {homes.map((home) =>{
-                   return <Link key={home.id} to={`/homes/${home.id}`}> <li>{home.address}</li> </Link>
+                   return <Link key={home.id} to={`/homes/${home.id}`}> <li className = "home-links"><img className = "cribs" src={home.image} alt={home.id}/><br/>{home.address}</li> </Link>
                 })}
             </ul>
         </div>
