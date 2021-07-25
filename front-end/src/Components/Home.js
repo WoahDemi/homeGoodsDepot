@@ -45,12 +45,21 @@ function Home() {
     }
   }
 
+  const formatMoney = (num)=>{
+    let formatter = new Intl.NumberFormat('en-US', 
+    {style: 'currency',currency: 'USD',
+    maximumFractionDigits: 0}
+    );
+      
+      return formatter.format(num);
+}
+
   return (
     <div className="container1"> 
       <img className="img" src={home.image} alt={home.id} />
       <div className="container2">
           <h2>{home.address}, {home.state}</h2>
-          <h3>${home.price}</h3>
+          <h3>{formatMoney(home.price)}</h3>
           <ul className="property-feature">
             <li className="li"><strong>Property Features</strong></li>
             <li className="li">{typeOfProperty()}</li>
