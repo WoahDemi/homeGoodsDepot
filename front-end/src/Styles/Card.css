@@ -7,11 +7,16 @@ ul {
   justify-items: center;
 }
 
- ul > li{
-   padding: 10px;
- 
-} 
+ul>li {
+  padding: 10px;
+}
 
 .top-image {
   height: 200px;
+}
+
+.bottom-image {
+  position: absolute;
+  right: 9px;
+  bottom: 134px;
 }
