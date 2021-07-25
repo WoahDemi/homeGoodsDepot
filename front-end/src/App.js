@@ -4,24 +4,16 @@ import Index from "./Pages/Index";
 import New from "./Pages/New";
 import Show from "./Pages/Show";
 import FourOFour from "./Pages/FourOFour";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Edit from "./Pages/Edit";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import NavBar from "./Pages/NavBar"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
     <div className="AppDiv">
       <Router>
-         <Navbar bg="dark" variant="dark">
-          <Container>
-            <Navbar.Brand href="/">🏡 HomeGoods Depot 🏡</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link href="/homes">Available HomeGoods</Nav.Link>
-              <Nav.Link href="/homes/new">Add a Listing</Nav.Link>
-            </Nav>
-          </Container>
-        </Navbar> 
+        <NavBar/> 
         <main>
           <Switch>
             <Route exact path="/">
