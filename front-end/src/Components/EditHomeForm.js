@@ -88,13 +88,6 @@ function EditHomeForm() {
                     </Form.Select>
                 </Col>
 
-                {/* <Col>
-                    <Form.Group className="mb-3" controlId="state">
-                        <Form.Label>State</Form.Label>
-                        <Form.Control type="text" placeholder="State initials" maxLength="2" value={home.state} onChange={handleTextChange} />
-                    </Form.Group>
-                </Col> */}
-
             </Row>
 
             <Row>
@@ -125,12 +118,6 @@ function EditHomeForm() {
             <br></br>
 
             <Row>
-                {/* <Col xs={8}>
-            <Form.Group controlId="image" className="mb-1">
-                <Form.Label>Default file input example</Form.Label>
-                <Form.Control type="file" onChange={handleTextChange} value={home.image} required/>
-            </Form.Group>
-            </Col> */}
 
                 <Col xs={8}>
                     <Form.Group className="mb-1" controlId="image" >
