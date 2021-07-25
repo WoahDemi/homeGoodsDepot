@@ -43,7 +43,6 @@ function NewHomeForm() {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        debugger
         addHome();
     }
 
