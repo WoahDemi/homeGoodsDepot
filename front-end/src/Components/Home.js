@@ -2,7 +2,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { apiURL } from "../util/apiURL";
 import { Link, useParams, useHistory } from "react-router-dom";
-
+import {Button} from "react-bootstrap"
+import "../Styles/ViewHome.css"
 
 const API = apiURL();
 
@@ -34,24 +35,35 @@ function Home() {
     getHome();
   }, [id, history]);
 
-  return (
+  const typeOfProperty = () => {
+    if (home.property_type === "SFH"){
+      return "Single Family Home"
+    } else if (home.property_type === "MFH"){
+      return "Multiple Family Home"
+    } else {
+      return "Condo"
+    }
+  }
 
-    
-    <div>
-      <h2>{home.address}</h2>
-      <img src={home.image} alt={home.id} />
-      <ul>
-        <li>{home.property_type}</li>
-        <li>{home.parking ? "Parking" : "No Parking"}</li>
-        <li>{home.saved}</li>
-        <li>{home.state}</li>
-        {/* <li>{home.property_type}</li>
-          <li>{home.property_type}</li>
-          <li>{home.property_type}</li>
-          <li>{home.property_type}</li> */}
-      </ul>
-      <button><Link to={`/homes/${id}/edit`}>Edit Home</Link></button>
-      <button onClick={deleteHome}>Delete</button>
+  return (
+    <div className="container1"> 
+      <img className="img" src={home.image} alt={home.id} />
+      <div className="container2">
+          <h2>{home.address}, {home.state}</h2>
+          <h3>${home.price}</h3>
+          <ul className="property-feature">
+            <li className="li"><strong>Property Features</strong></li>
+            <li className="li">{typeOfProperty()}</li>
+            <li className="li">{home.number_of_bathrooms} bathrooms</li>
+            <li className="li">{home.number_of_bedrooms} bedrooms</li>
+            <li className="li">{home.parking ? "Parking" : "No Parking"}</li>
+            <li className="li">{home.saved ? "Saved" : "Not Saved"}</li>
+          </ul>
+          <div className="buttons">
+            <Link to={`/homes/${id}/edit`}><Button variant="outline-primary">Edit Home</Button></Link>
+            <Button id="deleteBtn" variant="outline-primary" onClick={deleteHome}>Delete</Button>
+          </div>
+       </div> 
     </div>
   );
 }

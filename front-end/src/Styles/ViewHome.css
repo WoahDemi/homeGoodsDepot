@@ -1,0 +1,39 @@
+.img{
+    height:70vh;
+    width: 70wh;
+    border: solid 2px #0D6EFD;
+}
+
+.container1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.property-feature{
+    display: flex;
+    flex-direction: column;
+    padding: 0%;
+}
+
+.li {
+    padding: 0%;
+    color: #fd6d0d;    
+}
+
+
+.container2{
+    padding: 1.5rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#deleteBtn{
+    margin-left:  20px;
+}
+
+
+
