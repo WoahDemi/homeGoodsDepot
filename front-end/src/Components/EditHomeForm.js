@@ -29,7 +29,7 @@ function EditHomeForm() {
     const editHome = async () => {
         try {
             await axios.put(`${API}/homes/${id}`, home)
-            history.push(`/homes`)
+            history.push(`/homes/${id}`)
         } catch (error) {
             console.log(error)
         }

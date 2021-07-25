@@ -3,12 +3,23 @@ import { Card, Button } from "react-bootstrap"
  import "../Styles/Card.css"
 
 const HomeListItem = ({ home }) => {
+
+    const formatMoney = (num)=>{
+        let formatter = new Intl.NumberFormat('en-US', 
+        {style: 'currency',currency: 'USD',
+        maximumFractionDigits: 0}
+        );
+          
+          return formatter.format(num);
+    }
+
+
     return (<li className="home-links" key={home.id}>
 
         <Card style={{ width: '22rem' }}>
             <Card.Img className="top-image" variant="top" src={home.image} />
             <Card.Body>
-                <Card.Title>${home.price}</Card.Title>
+                <Card.Title>{formatMoney(home.price)}</Card.Title>
                 <Card.Text>
                     {home.address}
                 </Card.Text>

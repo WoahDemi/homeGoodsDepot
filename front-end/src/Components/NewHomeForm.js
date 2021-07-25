@@ -82,7 +82,8 @@ function NewHomeForm() {
             <Row>
                 <Col xs={6}>
                     <Form.Label>Property Type</Form.Label>
-                    <Form.Select id="property_type" onChange={handleTextChange} required>
+                    <Form.Select id="property_type" onChange={handleTextChange} defaultValue="" required>
+                        <option disabled></option>
                         <option value="SFH">Single-Family Home</option>
                         <option value="MFH">Multi-Family Home</option>
                         <option value="CONDO">Condo</option>
