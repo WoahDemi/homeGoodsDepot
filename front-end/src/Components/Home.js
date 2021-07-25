@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { apiURL } from "../util/apiURL";
 import { Link, useParams, useHistory } from "react-router-dom";
-import {Button} from "react-bootstrap"
+import { Button } from "react-bootstrap"
 import "../Styles/ViewHome.css"
 
 const API = apiURL();
@@ -11,6 +11,16 @@ function Home() {
   const [home, setHome] = useState({});
   const { id } = useParams();
   let history = useHistory()
+
+  const updateSave = async () => {
+    let newHome = {...home, "saved": !home.saved}
+    setHome({...newHome})
+    try {
+      await axios.put(`${API}/homes/${id}`, newHome)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 
   const deleteHome = async () => {
@@ -36,43 +46,46 @@ function Home() {
   }, [id, history]);
 
   const typeOfProperty = () => {
-    if (home.property_type === "SFH"){
+    if (home.property_type === "SFH") {
       return "Single Family Home"
-    } else if (home.property_type === "MFH"){
+    } else if (home.property_type === "MFH") {
       return "Multiple Family Home"
     } else {
       return "Condo"
     }
   }
 
-  const formatMoney = (num)=>{
-    let formatter = new Intl.NumberFormat('en-US', 
-    {style: 'currency',currency: 'USD',
-    maximumFractionDigits: 0}
+  const formatMoney = (num) => {
+    let formatter = new Intl.NumberFormat('en-US',
+      {
+        style: 'currency', currency: 'USD',
+        maximumFractionDigits: 0
+      }
     );
-      
-      return formatter.format(num);
-}
+
+    return formatter.format(num);
+  }
 
   return (
-    <div className="container1"> 
+    <div className="container1">
       <img className="img" src={home.image} alt={home.id} />
       <div className="container2">
-          <h2>{home.address}, {home.state}</h2>
-          <h3>{formatMoney(home.price)}</h3>
-          <ul className="property-feature">
-            <li className="li"><strong>Property Features</strong></li>
-            <li className="li">{typeOfProperty()}</li>
-            <li className="li">{home.number_of_bathrooms} bathrooms</li>
-            <li className="li">{home.number_of_bedrooms} bedrooms</li>
-            <li className="li">{home.parking ? "Parking" : "No Parking"}</li>
-            <li className="li">{home.saved ? "Saved" : "Not Saved"}</li>
-          </ul>
-          <div className="buttons">
-            <Link to={`/homes/${id}/edit`}><Button variant="outline-primary">Edit Home</Button></Link>
-            <Button id="deleteBtn" variant="outline-primary" onClick={deleteHome}>Delete</Button>
-          </div>
-       </div> 
+        <h2>{home.address}, {home.state}</h2>
+        <h3>{formatMoney(home.price)}</h3>
+        <ul className="property-feature">
+          <li className="li"><strong>Property Features</strong></li>
+          <li className="li">{typeOfProperty()}</li>
+          <li className="li">{home.number_of_bathrooms} bathrooms</li>
+          <li className="li">{home.number_of_bedrooms} bedrooms</li>
+          <li className="li">{home.parking ? "Parking" : "No Parking"}</li>
+          {home.saved ? <li className="li">⭐ </li> : <li className="li">Not saved</li>}
+        </ul>
+        <div className="buttons">
+          <Link to={`/homes/${id}/edit`}><Button variant="outline-primary">Edit Home</Button></Link>
+          <Button id="deleteBtn" variant="outline-danger" onClick={deleteHome}>Delete</Button>
+          <Button id="deleteBtn" variant="outline-success" onClick={updateSave}>{home.saved ? "Unsave" : "Save"}</Button>
+        </div>
+      </div>
     </div>
   );
 }
