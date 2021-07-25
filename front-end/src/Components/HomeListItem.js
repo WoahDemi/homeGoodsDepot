@@ -21,7 +21,7 @@ const HomeListItem = ({ home }) => {
             <Card.Body>
                 <Card.Title>{formatMoney(home.price)}</Card.Title>
                 <Card.Text>
-                    {home.address}
+                {home.address}, {home.state} 
                 </Card.Text>
                 <Link to={`/homes/${home.id}`} >
                     <Button variant="primary">View</Button>

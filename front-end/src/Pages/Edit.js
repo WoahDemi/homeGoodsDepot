@@ -4,7 +4,7 @@ function Edit(){
 
     const header = {
         "textAlign": "center",
-        backgroundColor: "#8ECAE6",
+        backgroundColor: "#82c8e8",
         padding: "10px"
       };
 
