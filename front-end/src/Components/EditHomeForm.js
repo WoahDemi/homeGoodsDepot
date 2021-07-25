@@ -171,8 +171,8 @@ function EditHomeForm() {
 
         </Form>
 
-        <div className="mx-auto mt-5 w-25 d-grid gap-2">
-                <Button className="p-2" size="lg" variant="secondary" onClick={()=>goBack()}>
+        <div className="mx-auto mt-5 w-25 d-grid gap-2 mb-2" >
+                <Button className="" size="lg" style={{ background: '#82c8e8', color: 'black' }} onClick={()=>goBack()}>
                     Go Back
                 </Button>
             </div>
