@@ -1,17 +1,17 @@
-ul{
-  display: flex;
-  flex-wrap: wrap;
+ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* flex-wrap: wrap; */
+  padding: 10px;
   list-style-type: none;
-  margin: 50px;
+  justify-items: center;
 }
 
-ul > li{
-   height: 50vh;
-   padding: 35px;
+ ul > li{
+   padding: 10px;
  
-}
+} 
 
-
-.top-image{
-height:200px;
+.top-image {
+  height: 200px;
 }
