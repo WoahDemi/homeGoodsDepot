@@ -1,0 +1,17 @@
+ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 50px;
+}
+
+ul > li{
+   height: 50vh;
+   padding: 35px;
+ 
+}
+
+
+.top-image{
+height:200px;
+}

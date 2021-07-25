@@ -35,6 +35,8 @@ function Home() {
   }, [id, history]);
 
   return (
+
+    
     <div>
       <h2>{home.address}</h2>
       <img src={home.image} alt={home.id} />
