@@ -1,38 +1,26 @@
-import { Navbar, Container, Nav } from "react-bootstrap"
-<>
-  <Navbar bg="dark" variant="dark">
-    <Container>
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-    <Nav className="me-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
-    </Nav>
-    </Container>
-  </Navbar>
-  <br />
-  <Navbar bg="primary" variant="dark">
-    <Container>
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-    <Nav className="me-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
-    </Nav>
-    </Container>
-  </Navbar>
+import { Navbar, Container, Nav } from "react-bootstrap";
+import "../Styles/NavBar.css"
 
-  <br />
-  <Navbar bg="light" variant="light">
-    <Container>
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-    <Nav className="me-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
-    </Nav>
-    </Container>
-  </Navbar>
-</>
-
-export default Navbar
+export default function NavBar() {
+  return (
+    <Navbar bg="dark" variant="dark">
+      <Container className="nav-format">
+        <Nav>
+          <Navbar.Brand className="nav-text" href="/">
+            🏡 HomeGoods Depot 🏡
+          </Navbar.Brand>
+        </Nav>
+        <Nav>
+          <Nav.Link className="nav-text" href="/homes">
+            Available HomeGoods
+          </Nav.Link>
+        </Nav>
+        <Nav>
+          <Nav.Link className="nav-text" href="/homes/new">
+            Add a Listing
+          </Nav.Link>
+        </Nav>
+      </Container>
+    </Navbar>
+  );
+}
