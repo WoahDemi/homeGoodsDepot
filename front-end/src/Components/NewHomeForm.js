@@ -70,13 +70,6 @@ function NewHomeForm() {
                     </Form.Select>
                 </Col>
 
-                {/* <Col>
-                    <Form.Group className="mb-3" controlId="state">
-                        <Form.Label>State</Form.Label>
-                        <Form.Control type="text" placeholder="State initials" maxLength="2" value={home.state} onChange={handleTextChange} />
-                    </Form.Group>
-                </Col> */}
-
             </Row>
 
             <Row>
@@ -108,12 +101,6 @@ function NewHomeForm() {
             <br></br>
 
             <Row>
-                {/* <Col xs={8}>
-            <Form.Group controlId="image" className="mb-1">
-                <Form.Label>Default file input example</Form.Label>
-                <Form.Control type="file" onChange={handleTextChange} value={home.image} required/>
-            </Form.Group>
-            </Col> */}
 
                 <Col xs={8}>
                     <Form.Group className="mb-1" controlId="image" >
@@ -143,8 +130,6 @@ function NewHomeForm() {
                     </Form.Group>
                 </Col>
             </Row>
-
-
 
             <div className="d-grid gap-2">
                 <Button className="p-2" size="lg" variant="secondary" type="submit">
