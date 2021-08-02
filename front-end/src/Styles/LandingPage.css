@@ -1,9 +1,8 @@
-.Home {
+/* .Home {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 92.5vh;
-    /* width: 95vw; */
     background-color: white;
 }
 h2{
@@ -19,4 +18,47 @@ h2{
     display:flex;
     justify-content: space-around;
     
+} */
+
+/* .AppDiv{
+    background: url(images/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+
+.image {
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: 100%;
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.find-home-div {
+    position: fixed;
+    border: 5px solid rgb(0, 0, 0);
+    background-color: rgb(215, 167, 247);
+    border-radius: 13%;
+    width: 200px;
+    left: 50%;
+    top: 75%;
+    transform: translate(-50%, -50%);
+    /* responsive positioning */
+}
+
+@media screen and (max-width: 700px) {
+    /* Specific to this particular image */
+    .image {
+        left: 50%;
+        margin-left: -512px;
+        /* 50% */
+    }
 }
