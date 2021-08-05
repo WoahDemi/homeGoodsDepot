@@ -1,3 +1,13 @@
 .nav-text {
  font-size: 2.2rem !important;
+ text-decoration: none;
+ color:rgb(161, 161, 161);
+}
+
+.nav-text:hover{
+    color:rgb(63, 199, 240)
+}
+
+.active{
+    color:rgb(255, 255, 255);
 }
