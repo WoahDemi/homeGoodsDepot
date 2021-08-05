@@ -1,4 +1,5 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import "../Styles/NavBar.css"
 
 export default function NavBar() {
@@ -6,19 +7,19 @@ export default function NavBar() {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container className="nav-format">
         <Nav>
-          <Navbar.Brand className="nav-text" href="/">
-            🏡 HomeGoods Depot 🏡
-          </Navbar.Brand>
+            <NavLink className="nav-text" exact to="/">
+            🏡 HomeGoods Depot 🏡 
+            </NavLink>
         </Nav>
         <Nav>
-          <Nav.Link className="nav-text" href="/homes">
+          <NavLink className="nav-text"  exact to="/homes">
             Available HomeGoods
-          </Nav.Link>
+            </NavLink>
         </Nav>
         <Nav>
-          <Nav.Link className="nav-text" href="/homes/new">
+        <NavLink className="nav-text"  exact to="/homes/new">
             Add a Listing
-          </Nav.Link>
+            </NavLink>
         </Nav>
       </Container>
     </Navbar>
