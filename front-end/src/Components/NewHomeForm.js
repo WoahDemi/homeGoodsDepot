@@ -3,6 +3,7 @@ import { useState } from "react"
 import { apiURL } from "../util/apiURL"
 import { useHistory } from "react-router-dom"
 import { Button, Form, Row, Col } from 'react-bootstrap';
+import "../Styles/Form.css"
 
 function NewHomeForm() {
     const API = apiURL();
@@ -49,7 +50,7 @@ function NewHomeForm() {
 
     return (<div>
 
-        <Form onSubmit={handleSubmit} className="mx-auto mt-5 w-50 card p-4 bg-light">
+        <Form onSubmit={handleSubmit} className="home-form mx-auto mt-5 card p-4 bg-light">
 
             <Row className="mb-3">
 
