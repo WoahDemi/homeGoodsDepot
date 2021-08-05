@@ -53,7 +53,7 @@ const Homes = () => {
         fetchHomes()
     }, [])
     return (
-        <div>
+        <div className ="index-container">
                 <Row className="m-2 pt-1">
                     <Col sm={7}></Col>
                     <Col sm={1}> <Form.Label className="mt-1">Sort By:</Form.Label></Col>

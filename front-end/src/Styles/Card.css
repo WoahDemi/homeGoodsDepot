@@ -1,15 +1,24 @@
-ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  /* flex-wrap: wrap; */
-  padding: 10px;
-  list-style-type: none;
-  justify-items: center;
+
+.index-container{
+  text-align: center;
 }
 
-ul>li {
-  padding: 10px;
+.index-container, .index-container ul, .index-container ul li{
+  margin: 0 auto;
+
 }
+
+ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding-right: 32px;
+}
+
+ul li{
+  padding: 20px;
+}
+
 
 .top-image {
   height: 200px;
