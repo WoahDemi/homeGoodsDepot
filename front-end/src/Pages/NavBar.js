@@ -3,7 +3,7 @@ import "../Styles/NavBar.css"
 
 export default function NavBar() {
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container className="nav-format">
         <Nav>
           <Navbar.Brand className="nav-text" href="/">

@@ -30,7 +30,7 @@ function Home() {
         </Link>
       </div>
 
-      <Image className="image" src="https://i.ytimg.com/vi/mXPjoWckRPg/maxresdefault.jpg" />
+      <Image className="image" src="https://3sdwfb1xa06f3y7ie9255ali-wpengine.netdna-ssl.com/na/wp-content/uploads/sites/8/house-with-grey-shingles-backyard-pool.jpg"/>
 
     </div>
   );
