@@ -16,7 +16,6 @@ homes.get("/:id", async (req, res) => {
         if (oneHome["id"]) {
             res.json(oneHome)
         } else {
-            console.log(`Database error: ${oneHome}`)
             throw `There is no home with id: ${id}`
         }
     } catch (error) {
@@ -32,7 +31,6 @@ homes.post("/", async (req, res) => {
         if (newHome["id"]) {
             res.json(newHome)
         } else {
-            console.log(`Database error: ${newHome}`)
             throw ("Error adding" + home + " to the database")
         }
     } catch (error) {
@@ -47,7 +45,7 @@ homes.put("/:id", async (req, res) => {
         const update = await updateHome(id, home)
         res.json(update)
     } catch (error) {
-        console.log(error)
+        res.status(404).json({error: "invalid input", message: error})
     }
 })
 
@@ -57,7 +55,7 @@ homes.delete("/:id", async (req, res) => {
         const removeHome = await deleteHome(id)
         res.json(removeHome)
     } catch (error) {
-        console.log(error)
+        res.status(404).json({error: "unable to delete", message: error})
     }
 })
 
