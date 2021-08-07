@@ -13,7 +13,7 @@ function Home() {
             <Modal.Title ><p className="modal-title">HomeGoods Depot</p></Modal.Title>
             </Modal.Header>
             <Link to={`/homes`}>
-              <Button className="find-home-button" variant="dark btn-lg btn-block m-2" >Find a Home Today</Button>
+              <Button className="find-home-button" variant="dark btn-lg btn-block m-2">Find a Home Today</Button>
             </Link>
         </Modal.Dialog>
       </div>

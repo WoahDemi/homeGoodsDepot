@@ -22,7 +22,6 @@
 
 .find-home-button{
     font-family: 'Rubik', sans-serif;
-    
 }
 
 .modal-title{
@@ -33,5 +32,11 @@
     .image {
         left: 50%;
         margin-left: -512px;
+    }
+    .modal-title{
+        font-size: small;
+    }
+    .find-home-button{
+        font-size: small !important;
     }
 }

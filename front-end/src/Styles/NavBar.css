@@ -11,3 +11,9 @@
 .active{
     color:rgb(255, 255, 255);
 }
+
+@media screen and (max-width: 900px) {
+    .nav-text{
+        font-size: 1.5rem !important;
+    }
+}
