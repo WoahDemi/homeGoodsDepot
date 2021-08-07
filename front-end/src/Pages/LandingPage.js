@@ -1,27 +1,27 @@
 import "../Styles/LandingPage.css"
-import {Container, Row, Col, Image, Button} from "react-bootstrap"
-import {Link} from "react-router-dom"
+import { Modal, Image, Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
 function Home() {
 
-  
-    return (
-      <div className="Home" >
-        <Container>
-          <Row className="align-items-center" >
-            <Col  >
-              <h2>homeGoodsDepot</h2>
-              <h3>We turn rich dreams to reality.</h3>
-              <Link to={`/homes`}>
-                <Button variant="outline-primary">Find a Home</Button>
-              </Link>
-            </Col>
-            <Col >
-              <Image className="image" src="https://www.priceypads.com/wp-content/uploads/2018/05/ISa1ba7g0qkjdn0000000000-2.jpg"  />  
-            </Col>
-          </Row>
-        </Container>
+
+  return (
+    <div className="Home" >
+
+      <div className="find-home-div">
+        <Modal.Dialog>
+          <Modal.Header>
+            <Modal.Title ><p className="modal-title">HomeGoods Depot</p></Modal.Title>
+            </Modal.Header>
+            <Link to={`/homes`}>
+              <Button className="find-home-button" variant="dark btn-lg btn-block m-2" >Find a Home Today</Button>
+            </Link>
+        </Modal.Dialog>
       </div>
-    );
-  }
-  
-  export default Home;
+
+      <Image className="image" src="https://3sdwfb1xa06f3y7ie9255ali-wpengine.netdna-ssl.com/na/wp-content/uploads/sites/8/house-with-grey-shingles-backyard-pool.jpg" />
+
+    </div>
+  );
+}
+
+export default Home;
