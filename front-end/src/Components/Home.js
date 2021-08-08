@@ -67,12 +67,14 @@ function Home() {
   }
 
   return (
-    <div className="container1">
-      <img className="img" src={home.image} alt={home.id} />
-      <div className="container2">
+    <div className="container1 row m-1">
+      <div className="col-md-1"></div>
+      <img className="img col-12 col-md-6" src={home.image} alt={home.id} />
+      <div className="col-md-1"></div>
+      <div className="container2 col-6 col-md-4 ">
         <h2>{home.address}, {home.state}</h2>
         <h3>{formatMoney(home.price)}</h3>
-        <ul className="property-feature">
+        <ul className="property-feature ">
           <li className="li"><strong>Property Features</strong></li>
           <li className="li">{typeOfProperty()}</li>
           <li className="li">{home.number_of_bathrooms} bathrooms</li>
@@ -80,7 +82,7 @@ function Home() {
           <li className="li">{home.parking ? "Parking" : "No Parking"}</li>
           {home.saved ? <li className="li">⭐ </li> : <li className="li">Not saved</li>}
         </ul>
-        <div className="buttons">
+        <div className="buttons col-6">
           <Link to={`/homes/${id}/edit`}><Button variant="outline-primary">Edit Home</Button></Link>
           <Button id="deleteBtn" variant="outline-danger" onClick={deleteHome}>Delete</Button>
           <Button id="deleteBtn" variant="outline-success" onClick={updateSave}>{home.saved ? "Unsave" : "Save"}</Button>
@@ -91,3 +93,9 @@ function Home() {
 }
 
 export default Home;
+
+
+<div class="row">
+  <div class="col-12 col-md-8">.col-12 .col-md-8</div>
+  <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+</div>
