@@ -1,15 +1,23 @@
-ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  /* flex-wrap: wrap; */
-  padding: 10px;
-  list-style-type: none;
-  justify-items: center;
+
+.index-container{
+  text-align: center;
 }
 
-ul>li {
-  padding: 10px;
+
+ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin-left: 5rem;
+  justify-content: center;
+  margin: 0 !important;
+  padding: 0 !important;
 }
+
+ul li{
+  padding: 20px;
+}
+
 
 .top-image {
   height: 200px;
@@ -20,3 +28,8 @@ ul>li {
   right: 9px;
   bottom: 134px;
 }
+
+
+
+
+
