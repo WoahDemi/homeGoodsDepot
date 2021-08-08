@@ -2,16 +2,19 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { apiURL } from "../util/apiURL"
 import HomeListItem from "./HomeListItem"
-import { Form, Row, Col } from 'react-bootstrap';
+import { Form, Row, Col, Spinner } from 'react-bootstrap';
+import "../Styles/Spinner.css"
 const API = apiURL()
 
 const Homes = () => {
     const [homes, setHomes] = useState([])
+    const [loading, setLoading] = useState([true])
 
     const fetchHomes = async () => {
         try {
             const res = await axios.get(`${API}/homes`)
             setHomes(res.data)
+            setLoading(false)
         } catch (error) {
             return error
         }
@@ -76,10 +79,10 @@ const Homes = () => {
                 </Col>
             </Row>
 
-            <ul className="homes-list">
-                {homes.map((home) => <HomeListItem key={home.id} home={home} />)}
-            </ul>
-
+            {loading ? <Spinner className="spinner" animation="border" variant="primary" /> :
+                <ul className="homes-list">
+                    {homes.map((home) => <HomeListItem key={home.id} home={home} />)}
+                </ul>}
            
         </div>
     )
