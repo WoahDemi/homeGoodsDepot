@@ -75,9 +75,12 @@ const Homes = () => {
                 </Form.Select>
                 </Col>
             </Row>
+
             <ul className="homes-list">
                 {homes.map((home) => <HomeListItem key={home.id} home={home} />)}
             </ul>
+
+           
         </div>
     )
 }
