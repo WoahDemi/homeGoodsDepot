@@ -78,10 +78,12 @@ const Homes = () => {
                 </Form.Select>
                 </Col>
             </Row>
+
             {loading ? <Spinner className="spinner" animation="border" variant="primary" /> :
                 <ul className="homes-list">
                     {homes.map((home) => <HomeListItem key={home.id} home={home} />)}
                 </ul>}
+           
         </div>
     )
 }
