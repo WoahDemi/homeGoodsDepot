@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { apiURL } from "../util/apiURL";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { Button } from "react-bootstrap"
+import LoadingIcon from "../Pages/LoadingIcon"
 import "../Styles/ViewHome.css"
 
 const API = apiURL();
@@ -21,7 +22,6 @@ function Home() {
       console.log(error)
     }
   }
-
 
   const deleteHome = async () => {
     try {
@@ -69,7 +69,7 @@ function Home() {
   return (
     <div className="container1 row m-1">
       <div className="col-md-1"></div>
-      <img className="img col-12 col-md-6" src={home.image} alt={home.id} />
+      {Object.keys(home).length === 0 ? <LoadingIcon /> : <img className="img col-12 col-md-6" src={home.image} alt={home.id} />}
       <div className="col-md-1"></div>
       <div className="container2 col-6 col-md-4 ">
         <h2>{home.address}, {home.state}</h2>
