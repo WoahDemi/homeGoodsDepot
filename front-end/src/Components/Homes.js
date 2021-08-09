@@ -2,8 +2,8 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { apiURL } from "../util/apiURL"
 import HomeListItem from "./HomeListItem"
-import { Form, Row, Col, Spinner } from 'react-bootstrap';
-import "../Styles/Spinner.css"
+import { Form, Row, Col} from 'react-bootstrap';
+import LoadingIcon from "../Pages/LoadingIcon"
 const API = apiURL()
 
 const Homes = () => {
@@ -79,7 +79,7 @@ const Homes = () => {
                 </Col>
             </Row>
 
-            {loading ? <Spinner className="spinner" animation="border" variant="primary" /> :
+            {loading ? <LoadingIcon /> :
                 <ul className="homes-list">
                     {homes.map((home) => <HomeListItem key={home.id} home={home} />)}
                 </ul>}
