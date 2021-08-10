@@ -69,9 +69,9 @@ function Home() {
   return (
     <div className="container1 row m-1">
       <div className="col-md-1"></div>
-      {Object.keys(home).length === 0 ? <LoadingIcon /> : <img className="img col-12 col-md-6" src={home.image} alt={home.id} />}
+      {Object.keys(home).length === 0 ? <LoadingIcon /> : <img className="img col-10 col-md-6 mt-2" src={home.image} alt={home.id} />}
       <div className="col-md-1"></div>
-      <div className="container2 col-6 col-md-4 ">
+      <div className="container2 col-6 col-md-3">
         <h2>{home.address}, {home.state}</h2>
         <h3>{formatMoney(home.price)}</h3>
         <ul className="property-feature ">
@@ -82,12 +82,13 @@ function Home() {
           <li className="li">{home.parking ? "Parking" : "No Parking"}</li>
           {home.saved ? <li className="li">⭐ </li> : <li className="li">Not saved</li>}
         </ul>
-        <div className="buttons col-6">
-          <Link to={`/homes/${id}/edit`}><Button variant="outline-primary">Edit Home</Button></Link>
-          <Button id="deleteBtn" variant="outline-danger" onClick={deleteHome}>Delete</Button>
-          <Button id="deleteBtn" variant="outline-success" onClick={updateSave}>{home.saved ? "Unsave" : "Save"}</Button>
+        <div className="buttons">
+          <Link to={`/homes/${id}/edit`}><Button  variant="outline-primary m-1">Edit</Button></Link>
+          <Button id="deleteBtn" className="" variant="outline-danger m-1" onClick={deleteHome}>Delete</Button>
+          <Button id="updateBtn" variant="outline-success m-1" onClick={updateSave}>{home.saved ? "Unsave" : "Save"}</Button>
         </div>
       </div>
+      <div className="col-md-1"></div>
     </div>
   );
 }
